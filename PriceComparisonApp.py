@@ -35,55 +35,6 @@ Choice = st.selectbox('Search Type', menu)
 
 
 
-
-
-
-
-
-
-'''
-def mainwork(ii):
-    global Quit_Variable
-    try:
-        try:
-            data5 = Extras.Extras(ii)
-        except:
-            print('ERROR CAME.....RE-RUNNING THE PROGRAM')
-            data5 = Extras.Extras(ii)
-
-        df_result = data5
-
-        df_result = df_result.dropna()
-
-        df_result['aman'] = df_result['Product Name'] + 'True'
-
-        for i in ii.split():
-            df_result['aman'] = df_result['aman'].apply(
-                lambda x: str(x) if (i.lower() in str(x).lower() and 'True' in str(x)) else str(x).replace('True','False'))
-            df_result['aman2'] = df_result['aman'].apply(lambda x: True if (i.lower() in str(x).lower() and 'True' in str(x)) else False)
-
-        d = df_result[df_result['aman2'] == True]
-        d.drop(['aman', 'aman2'], axis=1, inplace=True)
-
-        d.to_excel('C:/Users/ASUS/Documents/AmanAman.xlsx')
-
-        return d
-
-    except Exception as e:
-        Quit_Variable = Quit_Variable + 1
-
-        if(Quit_Variable <= 1):
-            st.write(Quit_Variable)
-            print('Error Occurered....Running program again')
-            mainwork(ii)
-
-        elif(Quit_Variable>1):
-            st.stop()
-            exit()
-'''
-
-
-
 def mainwork(ii):
     global Quit_Variable
     try:
